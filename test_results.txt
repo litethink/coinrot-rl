@@ -1,0 +1,1 @@
+2021-05-25 16:29, test episodes:10, net worth:1178.446148362404, orders per episode:169.4, no profit episodes:0, model: CNN, comment: 

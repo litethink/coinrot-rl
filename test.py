@@ -8,6 +8,7 @@ import os
 os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 
 import json
+from datetime import datetime
 import pandas as pd
 from indicators import AddIndicators
 from utils import Normalizing
@@ -20,7 +21,7 @@ def d():
 
 
  
-def test_agent(test_df, test_df_nomalized, visualize=True, test_episodes=10, comment="", show_reward=False, show_indicators=False):
+def test_agent(test_df, test_df_nomalized, visualize=False, test_episodes=10, comment="", show_reward=True, show_indicators=False):
     with open("train/newest","r") as f:
         sub_path = f.read()
         newst_train_folder = "train/{}".format(sub_path)
@@ -53,7 +54,7 @@ def test_agent(test_df, test_df_nomalized, visualize=True, test_episodes=10, com
     # save test results to test_results.txt file
     with open("test_results.txt", "a+") as results:
         current_date = datetime.now().strftime('%Y-%m-%d %H:%M')
-        results.write(f'{current_date}, {name}, test episodes:{test_episodes}')
+        results.write(f'{current_date}, test episodes:{test_episodes}')
         results.write(f', net worth:{average_net_worth/(episode+1)}, orders per episode:{average_orders/test_episodes}')
         results.write(f', no profit episodes:{no_profit_episodes}, model: {agent.model}, comment: {comment}\n')
 

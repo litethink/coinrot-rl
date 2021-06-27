@@ -103,7 +103,7 @@ class TradingGraph:
         
         self.psar = deque(maxlen=self.render_range)
 
-        self.MACD = deque(maxlen=self.render_range)
+        # self.MACD = deque(maxlen=self.render_range)
         self.RSI = deque(maxlen=self.render_range)
 
 
@@ -136,7 +136,7 @@ class TradingGraph:
 
         self.ax4.clear()
         # # Add Moving Average Convergence Divergence
-        self.ax4.plot(date_render_range, self.MACD,'r-')
+        # self.ax4.plot(date_render_range, self.MACD,'r-')
 
         # # Add Relative Strength Index
         self.ax4.plot(date_render_range, self.RSI,'g-')
@@ -277,7 +277,7 @@ def Plot_OHCL(df):
     ax1.plot(df["Date"], df_original['psar'],'.')
 
     # # Add Moving Average Convergence Divergence
-    ax2.plot(df["Date"], df_original['MACD'],'-')
+    # ax2.plot(df["Date"], df_original['MACD'],'-')
 
     # # Add Relative Strength Index
     ax2.plot(df["Date"], df_original['RSI'],'-')
